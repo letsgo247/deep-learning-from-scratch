@@ -4,7 +4,7 @@ import matplotlib.pylab as plt
 from gradient_2d import numerical_gradient
 
 
-def gradient_descent(f, init_x, lr=0.01, step_num=100):
+def gradient_descent(f, init_x, lr=1e-3, step_num=100):
     x = init_x
     x_history = []
 
@@ -22,7 +22,7 @@ def function_2(x):
 
 init_x = np.array([-3.0, 4.0])    
 
-lr = 0.1
+lr = 1e-0
 step_num = 20
 x, x_history = gradient_descent(function_2, init_x, lr=lr, step_num=step_num)
 
