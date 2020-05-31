@@ -11,13 +11,16 @@ from common.gradient import numerical_gradient
 class simpleNet:
     def __init__(self):
         self.W = np.random.randn(2,3) # 정규분포로 초기화
+        self.y = []
 
     def predict(self, x):
         return np.dot(x, self.W)
 
     def loss(self, x, t):
         z = self.predict(x)
+        # print('z = ', z)
         y = softmax(z)
+        self.y = y
         loss = cross_entropy_error(y, t)
 
         return loss
@@ -26,18 +29,21 @@ class simpleNet:
 
 
 net = simpleNet()
-# print('W = ', net.W)
+print('W = ', net.W)
 
 x = np.array([0.6, 0.9])
-# p = net.predict(x)
-# print('p = ', p)
-# print('argmax = ', np.argmax(p))
+p = net.predict(x)
+print('p = ', p)
+print('argmax = ', np.argmax(p))
+
 
 t = np.array([0, 0, 1])
-# print('loss = ', net.loss(x,t))
+print('t = ', t)
+net.loss(x,t)
+print('y = ', net.y)
+print('loss = ', net.loss(x,t))
 
-def f(D):
-    return net.loss(x,t)
+f = lambda D: net.loss(x,t)
 
 dW = numerical_gradient(f, net.W)
 print('dW = ', dW)
