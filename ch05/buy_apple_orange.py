@@ -1,6 +1,6 @@
 # coding: utf-8
 from layer_naive import *
-
+ 
 apple = 100
 apple_num = 2
 orange = 150

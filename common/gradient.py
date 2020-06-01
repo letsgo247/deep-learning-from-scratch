@@ -35,7 +35,7 @@ def numerical_gradient(f, x):
     h = 1e-4 # 0.0001
     grad = np.zeros_like(x)
     
-    it = np.nditer(x, flags=['multi_index'], op_flags=['readwrite'])
+    it = np.nditer(x, flags=['multi_index'], op_flags=['readwrite'])    #nditer: n개의 dimension을 모두 순회(iteration) 하는 동작
     while not it.finished:
         # print('while')
         idx = it.multi_index

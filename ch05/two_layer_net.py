@@ -39,7 +39,7 @@ class TwoLayerNet:
     def accuracy(self, x, t):
         y = self.predict(x)
         y = np.argmax(y, axis=1)
-        if t.ndim != 1 : t = np.argmax(t, axis=1)
+        if t.ndim != 1 : t = np.argmax(t, axis=1)   #one-hot 일 경우, argmax 형태로 변환! one-hot false 일 경우, 굳이 변환 안해도 원래 정답 label의 index 담고 있을 것!
         
         accuracy = np.sum(y == t) / float(x.shape[0])
         return accuracy
