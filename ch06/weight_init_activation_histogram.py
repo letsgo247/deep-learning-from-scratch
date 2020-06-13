@@ -26,18 +26,18 @@ for i in range(hidden_layer_size):
         x = activations[i-1]
 
     # 초깃값을 다양하게 바꿔가며 실험해보자！
-    w = np.random.randn(node_num, node_num) * 1
+    # w = np.random.randn(node_num, node_num) * 1
     # w = np.random.randn(node_num, node_num) * 0.01
     # w = np.random.randn(node_num, node_num) * np.sqrt(1.0 / node_num)
-    # w = np.random.randn(node_num, node_num) * np.sqrt(2.0 / node_num)
+    w = np.random.randn(node_num, node_num) * np.sqrt(2.0 / node_num)
 
 
     a = np.dot(x, w)
 
 
     # 활성화 함수도 바꿔가며 실험해보자！
-    z = sigmoid(a)
-    # z = ReLU(a)
+    # z = sigmoid(a)
+    z = ReLU(a)
     # z = tanh(a)
 
     activations[i] = z
@@ -48,6 +48,6 @@ for i, a in activations.items():
     plt.title(str(i+1) + "-layer")
     if i != 0: plt.yticks([], [])
     # plt.xlim(0.1, 1)
-    # plt.ylim(0, 7000)
+    plt.ylim(0, 7000)
     plt.hist(a.flatten(), 30, range=(0,1))
 plt.show()

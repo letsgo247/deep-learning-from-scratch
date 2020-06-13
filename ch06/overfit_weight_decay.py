@@ -16,7 +16,7 @@ x_train = x_train[:300]
 t_train = t_train[:300]
 
 # weight decay（가중치 감쇠） 설정 =======================
-#weight_decay_lambda = 0 # weight decay를 사용하지 않을 경우
+# weight_decay_lambda = 0 # weight decay를 사용하지 않을 경우
 weight_decay_lambda = 0.1
 # ====================================================
 
